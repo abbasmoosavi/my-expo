@@ -17,8 +17,8 @@ export default function HomeScreen() {
 
   const renderItem = ({ item, index }: any) => {
     return (
-      <Grid style={[styles.cardItem, { marginEnd: index % 2 == 0 ? 8 : 0 }]}>
-        <Text style={[styles.textItem, { fontFamily: item?.font }]}>{item?.title}</Text>
+      <Grid style={[styles.cardItem, { marginEnd: index % 2 == 0 ? 8 : 0 }]} className='rounded-2xl bg-[#1B1B27]'>
+        <Text className='mt-2 text-white' style={[styles.textItem, { fontFamily: item?.font }]}>{item?.title}</Text>
       </Grid>
     )
   }
@@ -100,13 +100,13 @@ const styles = StyleSheet.create({
   cardItem: {
     width: '48%',
     height: 200,
-    backgroundColor: '#1B1B27',
+    // backgroundColor: '#1B1B27',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10
+    // borderRadius: 10
   },
   textItem: {
     fontSize: 14,
-    color: '#FFFFFF'
+    // color: '#FFFFFF'
   }
 });
