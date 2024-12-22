@@ -9,13 +9,15 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.a.moosavi93.myexpo"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.a.moosavi93.myexpo"
     },
     "web": {
       "bundler": "metro",
@@ -42,8 +44,9 @@
         "origin": false
       },
       "eas": {
-        "projectId": "47e1fa7e-6c8e-4bf0-baa8-7d7141b06b12"
+        "projectId": "8a8ead67-876f-4d1f-9b00-84b1df7ac384"
       }
-    }
+    },
+    "owner": "abbas93"
   }
 }
