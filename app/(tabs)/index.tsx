@@ -37,7 +37,7 @@ export default function HomeScreen() {
         return (<View style={{ height: 8, width: '100%' }} />)
       }} />
 
-      {/* <ThemedView style={styles.titleContainer}>
+      <ThemedView style={styles.titleContainer}>
         <ThemedText type="title" style={{ fontFamily: 'PoppinsLight' }}>Welcome!</ThemedText>
         <HelloWave />
       </ThemedView>
@@ -71,7 +71,7 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
-      </ThemedView> */}
+      </ThemedView>
     </ParallaxScrollView >
   );
 }
