@@ -5,6 +5,8 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Col, Grid } from 'react-native-easy-grid';
+import { useCameraDevice, useCameraPermission, Camera } from "react-native-vision-camera";
+
 
 const data = [
   { id: 1, title: 'Poppins Bold', font: 'PoppinsBold' },
@@ -14,6 +16,8 @@ const data = [
 ]
 
 export default function HomeScreen() {
+  const device = useCameraDevice('back')
+  const { hasPermission } = useCameraPermission()
 
   const renderItem = ({ item, index }: any) => {
     return (
@@ -32,6 +36,18 @@ export default function HomeScreen() {
         />
       }
     >
+
+      {device !== null && hasPermission ? (
+        <Camera
+          style={{width: 300, height:400}}
+          device={device}
+          isActive={true}
+        />
+      ) : (
+        <View>
+          <Text className='text-white font-semibold text-lg'>No Camera</Text>
+        </View>
+      )}
 
       <FlatList numColumns={2} data={data} style={styles.cardContainer} renderItem={renderItem} keyExtractor={(item) => item?.id?.toString()} ItemSeparatorComponent={() => {
         return (<View style={{ height: 8, width: '100%' }} />)
