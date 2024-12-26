@@ -3,6 +3,7 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
+import Mapbox from '@rnmapbox/maps';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 import "../global.css";
@@ -10,6 +11,8 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+Mapbox.setAccessToken('pk.eyJ1IjoibWFoZGluZWdhaGkiLCJhIjoiY2xzamYwYW8xMXEyYTJ2cXBkb3V3Ynl0OCJ9.jHuaedZyh68szoFytNVbOQ');
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();

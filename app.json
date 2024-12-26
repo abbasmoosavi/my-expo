@@ -34,6 +34,18 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsDownloadToken": "pk.eyJ1IjoibWFoZGluZWdhaGkiLCJhIjoiY2xzamYwYW8xMXEyYTJ2cXBkb3V3Ynl0OCJ9.jHuaedZyh68szoFytNVbOQ"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Show current location on map."
+        }
       ]
     ],
     "experiments": {
