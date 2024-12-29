@@ -5,6 +5,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Col, Grid } from 'react-native-easy-grid';
+import Mapbox from '@rnmapbox/maps';
 
 const data = [
   { id: 1, title: 'Poppins Bold', font: 'PoppinsBold' },
@@ -32,6 +33,10 @@ export default function HomeScreen() {
         />
       }
     >
+
+      <View style={styles.container}>
+        <Mapbox.MapView style={styles.map} styleURL={Mapbox.StyleURL.Street}/>
+      </View>
 
       <FlatList numColumns={2} data={data} style={styles.cardContainer} renderItem={renderItem} keyExtractor={(item) => item?.id?.toString()} ItemSeparatorComponent={() => {
         return (<View style={{ height: 8, width: '100%' }} />)
@@ -108,5 +113,12 @@ const styles = StyleSheet.create({
   textItem: {
     fontSize: 14,
     // color: '#FFFFFF'
+  },
+  container: {
+    height: 300,
+    width: 300,
+  },
+  map: {
+    flex: 1
   }
 });

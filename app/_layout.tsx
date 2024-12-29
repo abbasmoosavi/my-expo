@@ -12,7 +12,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-Mapbox.setAccessToken('pk.eyJ1IjoibWFoZGluZWdhaGkiLCJhIjoiY2xzamYwYW8xMXEyYTJ2cXBkb3V3Ynl0OCJ9.jHuaedZyh68szoFytNVbOQ');
+Mapbox.setAccessToken('pk.eyJ1IjoibWFoZGluZWdhaGkiLCJhIjoiY201NmE3M2tyMjlldTJrcTIweHY4bnljeCJ9.R_a7Rs-LOCTOgjTSGQzoqw');
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
