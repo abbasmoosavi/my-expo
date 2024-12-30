@@ -6253,6 +6253,13 @@ react-native-gesture-handler@~2.20.2:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
+react-native-google-recaptcha@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/react-native-google-recaptcha/-/react-native-google-recaptcha-1.0.8.tgz#5edda61826cc1ed54d32b40992bba6acfdf52143"
+  integrity sha512-+b+CV+PQlgxMH61ieDoSk9Ck6czCZqsm7FGZhNURTVcISaPYv+bUqGotUKz24cKI0606KhlGQrpPwtspLZJ3rg==
+  dependencies:
+    use-latest-callback "^0.1.9"
+
 react-native-helmet-async@2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-native-helmet-async/-/react-native-helmet-async-2.0.4.tgz#93f53a1ff22d6898039688a541653a2d6b6866bb"
@@ -7463,6 +7470,11 @@ url-parse@^1.5.3:
   dependencies:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
+
+use-latest-callback@^0.1.9:
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/use-latest-callback/-/use-latest-callback-0.1.11.tgz#e073fcbba792cc95ac661d96bc13b6041956cfe1"
+  integrity sha512-8nhb73STSD/z3GTHklvNjL8F9wMOo0bj0AFnulpIYuFTm6aQlT3ZcNbXF2YurKImIY8+kpSFSDHZZyQmurGrhw==
 
 use-latest-callback@^0.2.1:
   version "0.2.3"
