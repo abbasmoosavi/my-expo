@@ -1,11 +1,43 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform, ActivityIndicator, Button } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import * as Updates from "expo-updates";
+import { useEffect, useState } from 'react';
 
 export default function HomeScreen() {
+  const [updateAvailable, setUpdateAvailable] = useState(false);
+  const [checking, setChecking] = useState(true);
+
+  useEffect(() => {
+    async function checkForUpdates() {
+      try {
+        const update = await Updates.checkForUpdateAsync();
+        if (update.isAvailable) {
+          setUpdateAvailable(true);
+        }
+      } catch (error) {
+        console.error("Error checking for updates:", error);
+      } finally {
+        setChecking(false);
+      }
+    }
+    checkForUpdates();
+  }, []);
+
+  const applyUpdate = async () => {
+    try {
+      await Updates.fetchUpdateAsync();
+      await Updates.reloadAsync(); // Restart app to apply update
+    } catch (error) {
+      console.error("Error applying update:", error);
+    }
+  };
+
+  if (checking) return <ActivityIndicator size="large" color="blue" />;
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -16,8 +48,12 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
+        <ThemedText type="title">Welcome! Arvin</ThemedText>
         <HelloWave />
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText>{updateAvailable ? "New update available!" : "App is up to date."}</ThemedText>
+        {updateAvailable && <Button title="Update Now" onPress={applyUpdate} />}
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>

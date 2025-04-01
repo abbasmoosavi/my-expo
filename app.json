@@ -47,6 +47,13 @@
         "projectId": "8a8ead67-876f-4d1f-9b00-84b1df7ac384"
       }
     },
-    "owner": "abbas93"
+    "owner": "abbas93",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/8a8ead67-876f-4d1f-9b00-84b1df7ac384",
+      "fallbackToCacheTimeout": 0
+    }
   }
 }
