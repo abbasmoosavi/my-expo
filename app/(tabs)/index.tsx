@@ -5,13 +5,31 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import * as Updates from "expo-updates";
+import * as Notifications from "expo-notifications";
 import { useEffect, useState } from 'react';
+import { registerBackgroundUpdateTask } from '@/services/backgroundUpdateTask';
 
 export default function HomeScreen() {
   const [updateAvailable, setUpdateAvailable] = useState(false);
   const [checking, setChecking] = useState(true);
 
+  async function registerForPushNotificationsAsync() {
+    await registerBackgroundUpdateTask();
+
+    const { status } = await Notifications.getPermissionsAsync();
+    if (status !== "granted") {
+      const { status: newStatus } = await Notifications.requestPermissionsAsync();
+      if (newStatus !== "granted") return console.log("Permission denied");
+    }
+  }
+
   useEffect(() => {
+    registerForPushNotificationsAsync();
+
+    const subscription = Notifications.addNotificationReceivedListener((notification) => {
+      console.log("Notification received:", notification);
+    });
+
     async function checkForUpdates() {
       try {
         const update = await Updates.checkForUpdateAsync();
@@ -25,6 +43,7 @@ export default function HomeScreen() {
       }
     }
     checkForUpdates();
+    return () => subscription.remove();
   }, []);
 
   const applyUpdate = async () => {
